@@ -9,16 +9,41 @@ users = [
         'username': "s", 
         'email': "s@s.com",
         'password': "s", 
+        'wins': 1,
+        'wins_as_hunter': 3,
+        'games_played': 10
     },
     { 
-        'username': "z", 
-        'email': "z@z.com",
-        'password': "z", 
+        'username': "kai", 
+        'email': "kyl1g16.ecs@gmail.com",
+        'password': "kaitheguy", 
+        'wins': 100,
+        'wins_as_hunter': 70,
+        'games_played': 100
     },
     { 
-        'username': "c", 
-        'email': "c@c.com",
-        'password': "c", 
+        'username': "ocr", 
+        'email': "oscr1998@outlook.com",
+        'password': "oliwiththetrolley", 
+        'wins': 98,
+        'wins_as_hunter': 88,
+        'games_played': 100
+    },
+    { 
+        'username': "thamiem", 
+        'email': "thamiem2000@gmail.com",
+        'password': "thamiemwiththeskincareroutine", 
+        'wins': 1,
+        'wins_as_hunter': 0,
+        'games_played': 100
+    },
+    { 
+        'username': "matt", 
+        'email': "matthieuchan96@gmail.com",
+        'password': "mattwiththehat", 
+        'wins': 66,
+        'wins_as_hunter': 24,
+        'games_played': 100
     },
 ]
 
@@ -33,9 +58,9 @@ with app.app_context():
             email = user['email'], 
             password = generate_password_hash(user["password"], method='sha256'),
             OTP = get_random_string(),
-            wins = 0,
-            wins_as_hunter = 0,
-            games_played = 0,
+            wins = user['wins'],
+            wins_as_hunter = user['wins_as_hunter'],
+            games_played = user['games_played'],
             avatar_url = get_random_avatar(),
         ))
     db.session.commit()
