@@ -21,4 +21,4 @@ python_version = "3.10"
 [scripts]
 dev = "python app.py"
 init_db = "python init_db.py"
-start = "gunicorn game:app"
+start = "gunicorn app:app"
