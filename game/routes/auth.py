@@ -112,7 +112,7 @@ def forgotPassword():
                 f"Here is your OTP, {foundUsername.username}!", 
                 sender='gustafsson_revelio@outlook.com',
                 recipients=[userData["email"]])
-            msg.html = f"<h1>Here is your 8-characters OTP for your Revelio account: {foundUsername.OTP}</h1><h2>Link to reset.</h2>"
+            msg.html = f"<h1>Here is your 8-characters OTP for your Revelio account:<br> {foundUsername.OTP}</h1><h2><a href='https://revelio.netlify.app/' >Link to reset</a></h2>"
             msg.msgId = msg.msgId.split('@')[0] + '@Revelio'
             mail.send(msg)
         return "Please check your Email inbox for resetting the password", 200
