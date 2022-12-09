@@ -5,19 +5,19 @@ from werkzeug.security import generate_password_hash
 from tool import get_random_string, get_random_avatar
 
 users = [
-    { 
-        'username': "s", 
-        'email': "s@s.com",
-        'password': "s", 
-        'wins': 1,
-        'wins_as_hunter': 3,
-        'games_played': 10
-    },
+    # { 
+    #     'username': "s", 
+    #     'email': "s@s.com",
+    #     'password': "s", 
+    #     'wins': 1,
+    #     'wins_as_hunter': 3,
+    #     'games_played': 10
+    # },
     { 
         'username': "kai", 
         'email': "kyl1g16.ecs@gmail.com",
         'password': "kaitheguy", 
-        'wins': 100,
+        'wins': 96,
         'wins_as_hunter': 70,
         'games_played': 100
     },
@@ -33,8 +33,8 @@ users = [
         'username': "thamiem", 
         'email': "thamiem2000@gmail.com",
         'password': "thamiemwiththeskincareroutine", 
-        'wins': 1,
-        'wins_as_hunter': 0,
+        'wins': 45,
+        'wins_as_hunter': 1,
         'games_played': 100
     },
     { 
@@ -43,7 +43,7 @@ users = [
         'password': "mattwiththehat", 
         'wins': 66,
         'wins_as_hunter': 24,
-        'games_played': 100
+        'games_played': 66
     },
 ]
 

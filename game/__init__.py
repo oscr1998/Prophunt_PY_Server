@@ -43,6 +43,32 @@ def create_app():
     def API():
         return "<h1>Welcome to the Revelio API</h1>"
     
+    @app.route("/leaderboard/<sort_by>/<int:limit>")
+    def leaderboard(sort_by,limit):
+        try:
+            match sort_by:
+                case "wins":
+                    item = User.wins
+                case "wins_as_hunter":
+                    item = User.wins_as_hunter
+                case "wins_as_hider":
+                    item = User.wins - User.wins_as_hunter
+                case "games_played":
+                    item = User.games_played
+                case _:
+                    item = User.username
+            res = map(lambda u: { 
+                "username": u.username,
+                "games_played": u.games_played, 
+                "wins": u.wins,
+                "wins_as_hunter": u.wins_as_hunter,
+                "wins_as_hider": u.wins - u.wins_as_hunter
+                }, User.query.order_by(item.desc()).limit(limit))
+            output = list(res)
+            return jsonify(output)
+        except:
+            raise exceptions.BadRequest()
+    
     #* Route
     app.register_blueprint(auth_route)
     
